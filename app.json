@@ -1,0 +1,33 @@
+{
+  "name": "INFINATO's TEAM NISHKAM BOT",
+  "description": "None",
+  "keywords": ["telegram"],
+  "repository": "https://github.com/coolfoolunidentifiedhacker/INFINATO-BOT",
+  "stack": "container",
+  "env": {
+    "API_ID": {
+      "description": "App ID from my.telegram.org/apps",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "App hash from my.telegram.org/apps",
+      "required": true
+    },
+    "SESSION_STRING": {
+      "description": "Pyrogram session string, You can get it from here, https://replit.com/@INFINATO/INFINATO-VC-SESSION-STRING-GENERATOR or just run sessionGen.py found in repo",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Create a bot from @BotFather and Get the Token",
+      "required": true
+    },
+    "HEROKU_API": {
+      "description": "Heroku Api from Heroku>Accounts>ScrollDown",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Heroku App Name",
+      "required": true
+    }
+  }
+}
