@@ -10,7 +10,7 @@ from pyrogram.types import Message
 async def infEval(client: Client, message: Message):
     msg = await message.reply_text("**Proccessing...**")
     try:
-        code = message.text.split(" ", maxsplit=1)[1]
+        code = message.text[6:]
     except IndexError:
         await msg.edit_text("Please Provide the Python Code!")
         return
