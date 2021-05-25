@@ -39,7 +39,7 @@ async def infEval(client: Client, message: Message):
         results2["err"] = f"▩ ERROR :\n{stderr}\n"
     if trbk:
         results["trbk"] = f"▩ **TRACEBACK :**\n```{trbk}```\n"
-        results["trbk"] = f"▩ TRACEBACK :\n{trbk}\n"
+        results2["trbk"] = f"▩ TRACEBACK :\n{trbk}\n"
     result = '\n'.join([results["code"], results["out"], results["err"], results["trbk"]])
     if len(result) > 4096:
         result = '\n'.join([results2["code"], results2["out"], results2["err"], results2["trbk"]])
