@@ -58,5 +58,4 @@ async def aexec(code, client: Client, message: Message):
         f"async def __aexec(c, e): "
         + "".join(f"\n {i}" for i in code.split("\n")),
     )
-
     return await locals()["__aexec"](c, e)
