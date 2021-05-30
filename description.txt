@@ -1,0 +1,34 @@
+1st plugin :- intro
+Commands :-
+/start
+/help
+Description :-
+/start is just to show the intro.
+/help to show the plugin description.
+
+2nd plugin :- pyExec
+Commands :-
+/eval print(c, e)
+Description :-
+This function helps to execute python code instantly, "print(c, e)" is the code.
+
+3rd plugin :- request_mgmt
+Commands :-
+#req Any string here or can be empty
+#reqlist
+Description :-
+#req is used to save the request
+#reqlist is used to view all the requests.
+
+4th plugin :- mention
+Commands :-
+@all
+@addtag TagList1
+@remtag TagList1
+@taglist
+@taglist Taglist1
+Description :-
+@all is to tag all members in the group
+@addtag is to add the replied user to specified tag list, "TagList1" is the name of the list.
+@remtag is just opposite of @addtag, that is to remove replied user from the specified list
+@taglist is to tag all the users in the specified tag list and if the list name is not specified then it shows names of all the tag lists in the chat.

@@ -2,3 +2,4 @@ python-dotenv
 Pyrogram
 asyncio
 TgCrypto
+firebase_admin
