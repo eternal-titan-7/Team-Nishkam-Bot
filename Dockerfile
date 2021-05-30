@@ -1,7 +1,7 @@
 FROM debian:latest
 
 RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip -y
+RUN apt install git curl python3 python3-pip python3-venv -y
 RUN mkdir /infTeamNishkamApp/
 WORKDIR /infTeamNishkamApp/
 COPY . /infTeamNishkamApp/
