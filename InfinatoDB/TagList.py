@@ -1,4 +1,4 @@
-from DataBase import db
+from InfinatoDB import db
 
 
 def add(chat_id: int, set_name: str, item):

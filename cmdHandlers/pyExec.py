@@ -9,10 +9,9 @@ from pyrogram.types import Message
 @Client.on_message(filters.command("eval") & ~filters.channel)
 async def infEval(client: Client, message: Message):
     msg = await message.reply_text("**Proccessing...**")
-    try:
-        code = message.text[6:]
-    except IndexError:
-        await msg.edit_text("Please Provide the Python Code!")
+    code = message.text[6:]
+    if len(code) == 0:
+        await msg.edit_text("__Please Provide the Python Code!__")
         return
     old_stdout = sys.stdout
     old_stderr = sys.stderr

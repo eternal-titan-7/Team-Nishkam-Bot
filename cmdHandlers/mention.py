@@ -1,24 +1,12 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, User
 
-from DataBase import TagList
-
-
-def get_mention(user: User):
-    if user.username:
-        return f"@{user.username}"
-    elif user.last_name and user.first_name:
-        men = '{} {}'.format(user.first_name, user.last_name)
-        return f"[{men}](tg://user?id={user.id})"
-    elif user.first_name:
-        return f"[{user.first_name}](tg://user?id={user.id})"
-    elif user.last_name:
-        return f"[{user.last_name}](tg://user?id={user.id})"
-    else:
-        return ''
+from InfinatoDB import TagList
+from Helpers import get_mention, admin_only
 
 
 @Client.on_message(filters.command("all", "@") & ~filters.channel)
+@admin_only
 async def tagAll(client: Client, message: Message):
     size = len(message.text[4:]) + 2
     txts = []
@@ -40,6 +28,7 @@ async def tagAll(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("addtag", "@") & ~filters.channel)
+@admin_only
 async def addTag(client: Client, message: Message):
     if len(message.command) < 2:
         await message.reply_text("__List Name Not Specified__")
@@ -52,6 +41,7 @@ async def addTag(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("remtag", "@") & ~filters.channel)
+@admin_only
 async def remTag(client: Client, message: Message):
     if len(message.command) < 2:
         await message.reply_text("__List Name Not Specified__")
@@ -64,6 +54,7 @@ async def remTag(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("taglist", "@") & ~filters.channel)
+@admin_only
 async def listTag(client: Client, message: Message):
     taglist = TagList.sets(message.chat.id)
     if len(message.command) < 2:
