@@ -33,7 +33,10 @@ async def tagAll(client: Client, message: Message):
             elif size + len(f"{txts[c]} {get_mention(pa.user)}") <= 4096:
                 txts[c] += f" {get_mention(pa.user)}"
     for msg in txts:
-        await client.send_message(message.chat.id, f"{message.text[4:]}\n\n{msg}")
+        if message.reply_to_message:
+            await message.reply_to_message.reply_text(f"{message.text[4:]}\n\n{msg}")
+        else:
+            await client.send_message(message.chat.id, f"{message.text[4:]}\n\n{msg}")
 
 
 @Client.on_message(filters.command("addtag", "@") & ~filters.channel)
@@ -84,4 +87,7 @@ async def listTag(client: Client, message: Message):
             elif size + len(f"{txts[c]} {ax}") <= 4096:
                 txts[c] += f" {ax}"
         for msg in txts:
-            await client.send_message(message.chat.id, f"{message.text[com:]}\n\n{msg}")
+            if message.reply_to_message:
+                await message.reply_to_message.reply_text(f"{message.text[com:]}\n\n{msg}")
+            else:
+                await client.send_message(message.chat.id, f"{message.text[com:]}\n\n{msg}")
