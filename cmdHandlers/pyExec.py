@@ -5,9 +5,11 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+from Helpers import ignore_channel
 
-@Client.on_message(filters.command("eval") & ~filters.channel)
-async def infEval(client: Client, message: Message):
+
+@ignore_channel
+async def _eval(client: Client, message: Message):
     msg = await message.reply_text("**Proccessing...**")
     code = message.text[6:]
     if len(code) == 0:

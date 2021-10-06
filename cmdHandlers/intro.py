@@ -1,16 +1,12 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
+from Helpers import ignore_channel
 
-@Client.on_message(filters.command("start") & ~filters.channel)
-async def infIntro(client: Client, message: Message):
-    await message.reply_video(video="https://telegra.ph/file/514a1c7cb71a7e910f081.mp4", thumb="assets/cf2.jpg",
-                              caption="""
-⚡️⚡️⚡️
-**TEAM NISHKAM**
-__धर्मो रक्षति रक्षितः__
-⚡️⚡️⚡️
 
- - `Made By INFINATO :)`
-""", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="HELP",
-                                                              url="https://infinity-i-i-i-i-i-i-i-i-i-i-i-i.gitbook.io/teamnishkambot/")]]))
+@ignore_channel
+async def _start(client: Client, message: Message):
+    await message.reply_cached_media(file_id="BAACAgQAAxkDAAOQYVxmmDJGE1TntAZjlrLD6TgRru0AAm4CAAIO9zVQS72lYy7fIpoeBA",
+                                     caption="⚡️⚡️ Welcome To INFINATO ⚡️⚡️\n\nYou can send message to my master from here only, Just leave your text and I'll forward to my master.",
+                                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="MY MASTER",
+                                                                                              url="https://t.me/INFINITY_I_i_I_i_I_i_I_i_I_i_I_i")]]))

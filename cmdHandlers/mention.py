@@ -1,13 +1,14 @@
-from pyrogram import Client, filters
-from pyrogram.types import Message, User
+from pyrogram import Client
+from pyrogram.types import Message
 
+from Helpers import get_mention, admin_only, ignore_private, ignore_channel
 from InfinatoDB import TagList
-from Helpers import get_mention, admin_only
 
 
-@Client.on_message(filters.command("all", "@") & ~filters.channel)
+@ignore_channel
+@ignore_private
 @admin_only
-async def tagAll(client: Client, message: Message):
+async def _all(client: Client, message: Message):
     size = len(message.text[4:]) + 2
     txts = []
     c = 0
@@ -27,9 +28,10 @@ async def tagAll(client: Client, message: Message):
             await client.send_message(message.chat.id, f"{message.text[4:]}\n\n{msg}")
 
 
-@Client.on_message(filters.command("addtag", "@") & ~filters.channel)
+@ignore_channel
+@ignore_private
 @admin_only
-async def addTag(client: Client, message: Message):
+async def _addtag(client: Client, message: Message):
     if len(message.command) < 2:
         await message.reply_text("__List Name Not Specified__")
     elif not message.reply_to_message:
@@ -40,9 +42,10 @@ async def addTag(client: Client, message: Message):
             f"{get_mention(message.reply_to_message.from_user)} __Added to Tag List__ `{message.command[1]}`")
 
 
-@Client.on_message(filters.command("remtag", "@") & ~filters.channel)
+@ignore_channel
+@ignore_private
 @admin_only
-async def remTag(client: Client, message: Message):
+async def _remtag(client: Client, message: Message):
     if len(message.command) < 2:
         await message.reply_text("__List Name Not Specified__")
     elif not message.reply_to_message:
@@ -53,9 +56,10 @@ async def remTag(client: Client, message: Message):
             f"{get_mention(message.reply_to_message.from_user)} __Removed from Tag List__ `{message.command[1]}`")
 
 
-@Client.on_message(filters.command("taglist", "@") & ~filters.channel)
+@ignore_channel
+@ignore_private
 @admin_only
-async def listTag(client: Client, message: Message):
+async def _taglist(client: Client, message: Message):
     taglist = TagList.sets(message.chat.id)
     if len(message.command) < 2:
         listOfTag = '`' + '`\n`'.join(taglist.keys()) + '`'
