@@ -1,7 +1,11 @@
-from pyrogram import Client
+from typing import Callable
+
+from pyrogram import Client, filters
+from pyrogram.handlers import MessageHandler
 from pyrogram.types import Message
 
 from Helpers import logs
+
 from cmdHandlers.admintools import _mute, _unmute, _ban, _unban, _kick
 from cmdHandlers.dnd import _dndon, _dndoff
 from cmdHandlers.doubt_handler import _doubt, _doubtlist, _remdoubt
@@ -12,6 +16,25 @@ from cmdHandlers.mention import _all, _addtag, _remtag, _taglist
 from cmdHandlers.pyExec import _eval
 from cmdHandlers.request_mgmt import _req, _reqlist, _remreq
 from cmdHandlers.warn_tool import _warn, _setwarn, _removewarn
+
+"""def stablize(dec):
+    def layer(*args, **kwargs):
+        def repl(f):
+            return dec(f, *args, **kwargs)
+
+        return repl
+
+    return layer
+
+
+@stablize
+def smain(func: Callable, cmd, trig) -> Callable:
+    async def decorators(client: Client, message: Message):
+        message.command = message.text.strip(trig).split()
+        if message.command[0].lower() == cmd.lower():
+            return await func(client, message)
+
+    return decorators"""
 
 
 @Client.on_message()

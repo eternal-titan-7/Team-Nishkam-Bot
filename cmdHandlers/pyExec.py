@@ -5,10 +5,11 @@ import traceback
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from Helpers import ignore_channel
+from Helpers import ignore_channel, logs
 
 
 @ignore_channel
+@logs
 async def _eval(client: Client, message: Message):
     msg = await message.reply_text("**Proccessing...**")
     code = message.text[6:]

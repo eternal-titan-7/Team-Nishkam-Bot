@@ -1,0 +1,26 @@
+from InfinatoDB import DBMGMT
+
+configuration = DBMGMT.get("TG_BOT", "CONFIG_")
+API_ID = configuration.get("API_ID")
+API_HASH = configuration.get("API_HASH")
+SESSION_STRING = configuration.get("SESSION_STRING")
+BOT_TOKEN = configuration.get("BOT_TOKEN")
+LOG_CHANNEL = configuration.get("LOG_CHANNEL")
+CMD_TRIGGER = configuration.get("CMD_TRIGGER")
+SUDO_TRIGGER = configuration.get("SUDO_TRIGGER")
+SUDO_USERS = configuration.get("SUDO_USERS")
+OWNER_ID = configuration.get("OWNER_ID")
+DISABLED_ALL = configuration.get("DISABLED_ALL")
+DISABLED_CHATS = configuration.get("DISABLED_CHATS")
+USE_USER_FOR_CLIENT_CHECKS = configuration.get("USE_USER_FOR_CLIENT_CHECKS")
+DOWN_PATH = configuration.get("DOWN_PATH")
+CACHE_PATH = configuration.get("CACHE_PATH")
+AUTH_CHATS = configuration.get("AUTH_CHATS")
+MSG_DELETE_TIMEOUT = configuration.get("MSG_DELETE_TIMEOUT")
+SUDO_ENABLED = configuration.get("SUDO_ENABLED")
+ALLOWED_COMMANDS = configuration.get("ALLOWED_COMMANDS")
+EDIT_SLEEP_TIMEOUT = configuration.get("EDIT_SLEEP_TIMEOUT")
+FINISHED_PROGRESS_STR = configuration.get("FINISHED_PROGRESS_STR")
+UNFINISHED_PROGRESS_STR = configuration.get("UNFINISHED_PROGRESS_STR")
+
+

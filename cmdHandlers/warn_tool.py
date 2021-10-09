@@ -1,9 +1,8 @@
-from google.cloud.firestore_v1 import DocumentReference
 from pyrogram import Client
 from pyrogram.types import Message, ChatPermissions
 
 from Helpers import ignore_private, ignore_channel, admin_only, get_mention
-from InfinatoDB import DBMGMT, db
+from InfinatoDB import DBMGMT
 
 
 @ignore_channel

@@ -1,12 +1,12 @@
 from pyrogram import Client
 
-import ENV_VARS
+import Config
 
 infUser = None
 
 
 async def start():
     global infUser
-    infUser = Client(session_name=ENV_VARS.SESSION_STRING, api_id=ENV_VARS.API_ID, api_hash=ENV_VARS.API_HASH,
-                     bot_token=ENV_VARS.BOT_TOKEN)
+    infUser = Client(session_name=Config.SESSION_STRING, api_id=Config.API_ID, api_hash=Config.API_HASH,
+                     bot_token=Config.BOT_TOKEN)
     await infUser.start()

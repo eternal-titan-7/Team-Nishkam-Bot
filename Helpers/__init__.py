@@ -1,16 +1,12 @@
 import io
-import sys
 import traceback
 from typing import Callable
 
-import infMain
-import pyrogram
-from pyrogram import Client, handlers, filters
-from pyrogram.filters import group, Filter, AndFilter
+from pyrogram import Client
 from pyrogram.raw.types import User
 from pyrogram.types import Message
 
-from ENV_VARS import LOG_CHANNEL
+from Config import LOG_CHANNEL
 
 
 def get_mention(user: User):
