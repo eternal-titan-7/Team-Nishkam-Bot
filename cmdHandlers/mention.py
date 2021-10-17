@@ -3,8 +3,10 @@ from pyrogram.types import Message
 
 from Helpers import get_mention, admin_only, ignore_private, ignore_channel
 from InfinatoDB import TagList
+from cmdHandlers import smain
 
 
+@smain("all", "@")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -28,6 +30,7 @@ async def _all(client: Client, message: Message):
             await client.send_message(message.chat.id, f"{message.text[4:]}\n\n{msg}")
 
 
+@smain("addtag", "@")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -42,6 +45,7 @@ async def _addtag(client: Client, message: Message):
             f"{get_mention(message.reply_to_message.from_user)} __Added to Tag List__ `{message.command[1]}`")
 
 
+@smain("remtag", "@")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -56,6 +60,7 @@ async def _remtag(client: Client, message: Message):
             f"{get_mention(message.reply_to_message.from_user)} __Removed from Tag List__ `{message.command[1]}`")
 
 
+@smain("taglist", "@")
 @ignore_channel
 @ignore_private
 @admin_only

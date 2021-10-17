@@ -5,8 +5,10 @@ from pyrogram.types import Message
 
 from Helpers import get_mention, get_display_name, get_username, admin_only, ignore_channel, ignore_private
 from InfinatoDB import DBMGMT
+from cmdHandlers import smain
 
 
+@smain("setwelcome", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -40,6 +42,7 @@ async def _setwelcome(client: Client, message: Message):
         await message.reply_text("__Welcome Note Saved__")
 
 
+@smain("setgoodbye", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -73,6 +76,7 @@ async def _setgoodbye(client: Client, message: Message):
         await message.reply_text("__GoodBye Note Saved__")
 
 
+@smain("clearwelcome", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -81,6 +85,7 @@ async def _clearwelcome(client: Client, message: Message):
     await message.reply_text("__Welcome Note Removed__")
 
 
+@smain("cleargoodbye", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -89,6 +94,7 @@ async def _cleargoodbye(client: Client, message: Message):
     await message.reply_text("__GoodBye Note Removed__")
 
 
+@smain(filters = ["newmem"])
 @ignore_channel
 @ignore_private
 async def newMem(client: Client, message: Message):
@@ -177,6 +183,7 @@ async def newMem(client: Client, message: Message):
                 await aa.delete()
 
 
+@smain(filters = ["leftmem"])
 @ignore_channel
 @ignore_private
 async def leftMem(client: Client, message: Message):

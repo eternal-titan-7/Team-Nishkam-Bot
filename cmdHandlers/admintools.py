@@ -2,8 +2,10 @@ from pyrogram import Client
 from pyrogram.types import Message, ChatPermissions
 
 from Helpers import admin_only, ignore_channel, ignore_private
+from cmdHandlers import smain
 
 
+@smain("mute", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -26,6 +28,7 @@ async def _mute(client: Client, message: Message):
         await message.reply_text("__Unable to Perform Requested Action__")
 
 
+@smain("unmute", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -49,6 +52,7 @@ async def _unmute(client: Client, message: Message):
         await message.reply_text("__Unable to Perform Requested Action__")
 
 
+@smain("ban", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -72,6 +76,7 @@ async def _ban(client: Client, message: Message):
         await message.reply_text("__Unable to Perform Requested Action__")
 
 
+@smain("unban", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -95,6 +100,7 @@ async def _unban(client: Client, message: Message):
         await message.reply_text("__Unable to Perform Requested Action__")
 
 
+@smain("kick", "/")
 @ignore_channel
 @ignore_private
 @admin_only

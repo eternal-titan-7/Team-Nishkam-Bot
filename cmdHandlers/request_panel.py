@@ -5,8 +5,10 @@ from pyrogram.types import Message
 
 from Helpers import get_username, admin_only, ignore_channel, ignore_private, get_mention, get_mention_name
 from InfinatoDB import DBMGMT
+from cmdHandlers import smain
 
 
+@smain("req", "#")
 @ignore_channel
 @ignore_private
 async def _req(client: Client, message: Message):
@@ -23,6 +25,7 @@ async def _req(client: Client, message: Message):
         f"{get_mention(message.from_user)} **Your Request Has Been Added to Database!**\n**Your Request_ID:** `{ac[1].id}`")
 
 
+@smain("reqlist", "#")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -48,6 +51,7 @@ async def _reqlist(client: Client, message: Message):
         await message.reply_text(text)
 
 
+@smain("remreq", "#")
 @ignore_channel
 @ignore_private
 @admin_only

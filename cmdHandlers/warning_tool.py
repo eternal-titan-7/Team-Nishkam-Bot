@@ -3,8 +3,10 @@ from pyrogram.types import Message, ChatPermissions
 
 from Helpers import ignore_private, ignore_channel, admin_only, get_mention
 from InfinatoDB import DBMGMT
+from cmdHandlers import smain
 
 
+@smain("warn", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -74,6 +76,7 @@ async def _warn(client: Client, message: Message):
     DBMGMT.set("WARN", f"{message.chat.id}/WARNINGS/{user.id}", warn)
 
 
+@smain("setwarn", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -101,6 +104,7 @@ async def _setwarn(client: Client, message: Message):
         await message.reply_text("**Warn Setting Has Been Set Successfully!**")
 
 
+@smain("removewarn", "/")
 @ignore_channel
 @ignore_private
 @admin_only

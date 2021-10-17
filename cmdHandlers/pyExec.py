@@ -6,8 +6,10 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from Helpers import ignore_channel, logs
+from cmdHandlers import smain
 
 
+@smain("eval", "/")
 @ignore_channel
 @logs
 async def _eval(client: Client, message: Message):

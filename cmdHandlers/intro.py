@@ -2,8 +2,10 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from Helpers import ignore_channel, logs
+from cmdHandlers import smain
 
 
+@smain("start", "/")
 @ignore_channel
 @logs
 async def _start(client: Client, message: Message):

@@ -3,10 +3,12 @@ from pyrogram.types import Message, ChatPermissions
 
 from Helpers import get_mention, admin_only, ignore_channel, ignore_private, ignore_edited
 from InfinatoDB import DBMGMT
+from cmdHandlers import smain
 
 md: dict[int, dict[int, list[int, int]]] = {}
 
 
+@smain(filters=["flood"])
 @ignore_edited
 @ignore_channel
 @ignore_private
@@ -61,6 +63,7 @@ async def flood_handler(client: Client, message: Message):
                     md[message.chat.id][message.from_user.id][0] = message.date
 
 
+@smain("setflood", "/")
 @ignore_channel
 @ignore_private
 @admin_only
@@ -88,6 +91,7 @@ async def _setflood(client: Client, message: Message):
         await message.reply_text("**AntiFlood Has Been Set Successfully!**")
 
 
+@smain("delflood", "/")
 @ignore_channel
 @ignore_private
 @admin_only
