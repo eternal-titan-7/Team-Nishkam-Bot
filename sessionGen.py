@@ -6,8 +6,8 @@ print("INFINATO SESSION STRING GENERATOR\n")
 
 
 async def main():
-    api_id = int(input("ENTER API ID:"))
-    api_hash = input("ENTER API HASH:")
+    api_id = int(input("ENTER API ID: "))
+    api_hash = input("ENTER API HASH: ")
     async with Client(":memory:", api_id=api_id, api_hash=api_hash) as infinato:
         session = await infinato.export_session_string()
         if (await infinato.get_me()).is_bot:
