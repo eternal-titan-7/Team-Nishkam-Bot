@@ -92,10 +92,10 @@ def logs(func: Callable) -> Callable:
     async def decorators(client: Client, message: Message):
         try:
             await func(client, message)
-        except Exception as err:
+        except Exception:
             trbk = traceback.format_exc()
-            err_log = f"▩ **ERROR** ▩\n```{err}```\n▩ **TRACEBACK** ▩\n```{trbk}```"
-            err_log2 = f"▩ ERROR ▩\n{err}\n▩ TRACEBACK ▩\n{trbk}"
+            err_log = f"▩ **TRACEBACK** ▩\n```{trbk}```"
+            err_log2 = f"▩ TRACEBACK ▩\n{trbk}"
             if len(err_log) > 4096:
                 with io.BytesIO(err_log2.encode()) as resultFile:
                     resultFile.name = "err_log.txt"
