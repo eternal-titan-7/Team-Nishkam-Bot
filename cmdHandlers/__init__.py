@@ -14,7 +14,7 @@ from cmdHandlers.pyExec import _eval
 from cmdHandlers.request_mgmt import _req, _reqlist, _remreq
 from cmdHandlers.warn_tool import _warn, _setwarn, _removewarn"""
 from Helpers import logs
-from cmdHandlers.captor import sak
+from cmdHandlers._captor import sak
 
 
 @Client.on_message()
